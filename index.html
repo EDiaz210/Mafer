@@ -847,6 +847,10 @@
 
         function togglePlay() {
             if (musicPlayer.paused) {
+                // Si es la primera vez o está fuera del rango, inicializar a START_TIME
+                if (musicPlayer.currentTime < START_TIME || musicPlayer.currentTime >= END_TIME) {
+                    musicPlayer.currentTime = START_TIME;
+                }
                 musicPlayer.play();
                 playBtn.textContent = '||';
             } else {
