@@ -500,12 +500,13 @@
             }
 
             .envelope {
-                width: 280px;
+                width: 100%;
+                max-width: 360px;
                 margin: 30px auto;
             }
 
             .envelope svg {
-                width: 95%;
+                width: 100%;
             }
 
             h1 {
@@ -713,15 +714,20 @@
                         stroke-linejoin="round"
                         shape-rendering="geometricPrecision"/>
 
-                    <!-- Corazón -->
-                    <text x="150" y="115"
-                        text-anchor="middle"
-                        dominant-baseline="middle"
-                        font-size="52"
-                        fill="#ff2b2b"
-                        stroke="#000"
-                        stroke-width="2">❤</text>
-
+                    <!-- Corazón un poco más grande -->
+                    <path d="
+                    M 150 138
+                    C 138 128, 120 120, 120 106
+                    C 120 96, 128 90, 138 90
+                    C 144 90, 148 94, 150 98
+                    C 152 94, 156 90, 162 90
+                    C 172 90, 180 96, 180 106
+                    C 180 120, 162 128, 150 138
+                    Z"
+                    fill="#ff2b2b"
+                    stroke="#000"
+                    stroke-width="2.5"
+                    stroke-linejoin="round"/>
                 </svg>
             </div>
         </div>
