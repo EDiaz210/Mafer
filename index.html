@@ -847,13 +847,16 @@
 
         function togglePlay() {
             if (musicPlayer.paused) {
-                // Forzar el tiempo a START_TIME antes de reproducir
+                // Forzar múltiples veces en móvil
                 musicPlayer.currentTime = START_TIME;
                 
-                // En móvil puede ser necesario esperar a que se aplique el cambio
-                musicPlayer.play().catch(error => {
-                    console.log('Error al reproducir:', error);
-                });
+                setTimeout(() => {
+                    musicPlayer.currentTime = START_TIME;
+                    musicPlayer.play().catch(error => {
+                        console.log('Error:', error);
+                    });
+                }, 10);
+                
                 playBtn.textContent = '||';
             } else {
                 musicPlayer.pause();
@@ -915,6 +918,11 @@
         });
 
         musicPlayer.addEventListener('timeupdate', function() {
+            // Normalizar el tiempo si está antes del inicio
+            if (this.currentTime < START_TIME && !this.paused) {
+                this.currentTime = START_TIME;
+            }
+            
             updateDisplay();
             
             // Pausar o repetir si llegamos al final
