@@ -779,7 +779,7 @@
             <div class="player-controls-main" style="margin-bottom: 30px;">
                 <button class="player-btn-small" id="shuffleBtn" onclick="toggleShuffle()">⤨</button>
                 <button class="player-btn-small" id="prevBtn" onclick="prevTrack()">◄◄</button>
-                <button class="player-btn-play" id="playBtn" onclick="togglePlay()">▶</button>
+                <button class="player-btn-play" id="playBtn" onclick="togglePlay()">||</button>
                 <button class="player-btn-small" id="nextBtn" onclick="nextTrack()">►►</button>
                 <button class="player-btn-small" id="repeatBtn" onclick="toggleRepeat()">↻</button>
             </div>
@@ -848,10 +848,10 @@
         function togglePlay() {
             if (musicPlayer.paused) {
                 musicPlayer.play();
-                playBtn.textContent = '⏸';
+                playBtn.textContent = '||';
             } else {
                 musicPlayer.pause();
-                playBtn.textContent = '▶';
+                playBtn.textContent = '>';
             }
         }
 
@@ -909,11 +909,11 @@
                 if (repeatMode === 0) {
                     this.pause();
                     this.currentTime = START_TIME;
-                    playBtn.textContent = '▶';
+                    playBtn.textContent = '>';
                 } else {
                     this.currentTime = START_TIME;
                     this.play();
-                    playBtn.textContent = '⏸';
+                    playBtn.textContent = '||';
                 }
             }
         });
@@ -962,7 +962,7 @@
                 document.getElementById('envelope').classList.remove('open');
                 musicPlayer.pause();
                 musicPlayer.currentTime = START_TIME;
-                playBtn.textContent = '▶';
+                playBtn.textContent = '>';
             }
 
             // Si vamos a la sección 3, preparar la música
